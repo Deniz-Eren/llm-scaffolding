@@ -52,7 +52,7 @@ Copyright (c) [Year] [Original Copyright Holder]
 
 ### conventionalcommits.org
 * **Source:** [github.com/conventional-commits/conventionalcommits.org/content/v1.0.0/index.md](https://github.com/conventional-commits/conventionalcommits.org/blob/master/content/v1.0.0/index.md)
-* **Component(s) Used:** [COMMITS.md](./skills/git/references/COMMITS.md)
+* **Component(s) Used:** [COMMITS.md](./COMMITS.md)
 * **Original License:** MIT License
 
 #### License Notice
@@ -81,7 +81,7 @@ SOFTWARE.
 
 ### agentskills
 * **Source:** [github.com/agentskills/agentskills/blob/main/docs/specification.mdx](https://github.com/agentskills/agentskills/blob/main/docs/specification.mdx)
-* **Component(s) Used:** [SKILLS.mdx](./skills/create-skill/references/SKILLS.mdx)
+* **Component(s) Used:** [SKILLS.mdx](./SKILLS.mdx)
 * **Original License:** Apache License
 
 #### License Notice
@@ -290,7 +290,7 @@ SOFTWARE.
 
 ### Semantic Versioning 2.0.0
 * **Source:** [github.com/semver/semver.md](https://github.com/semver/semver/blob/master/semver.md)
-* **Component(s) Used:** [semver.md](./skills/git/references/semver.md)
+* **Component(s) Used:** [semver.md](./semver.md)
 * **Original License:** Creative Commons Legal Code
 
 #### License Notice

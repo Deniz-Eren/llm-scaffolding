@@ -12,9 +12,9 @@ The deliverable of this project is `prompts/bootstrap-prompt.md` — a single pr
 
 3. **Recommended: wire up the example documents.** The `Pre-Existing Documents` table ships with sample entries prefixed with `*Example: *`. Delete the `Example: ` prefix from any of these rows and set their `Source Path` to point to the matching documents in this repository. This repository already includes several specification documents that govern how the scaffold is built:
 
-- `docs/skills/git/references/COMMITS.md` — Defines commit message rules (Conventional Commits specification).
-- `docs/skills/create-skill/references/SKILLS.mdx` — Specifies how skill files should be structured (headers, formatting rules).
-- `docs/skills/git/references/semver.md` — Defines the semantic versioning scheme to follow.
+- `docs/COMMITS.md` — Defines commit message rules (Conventional Commits specification).
+- `docs/SKILLS.mdx` — Specifies how skill files should be structured (headers, formatting rules).
+- `docs/semver.md` — Defines the semantic versioning scheme to follow.
 - `docs/THIRD-PARTY-NOTICES.md` — Template for tracking third-party dependencies and licenses; also contains the above specification documents.
 
 The prompt endorses specification-based working — even for specifying how skills are created. Point these example rows to the matching documents, and the prompt will follow your specifications when generating the scaffold, producing skill files, commit history, versioning, and dependency tracking that all conform to your rules.
@@ -52,7 +52,7 @@ The process generates 6 independent scaffolding projects (alpha, beta, gamma, de
  │  ┌──────────────┐    ┌───────────────┐    ┌────────────────┐  │
  │  │  Create &    │───▶│  Generate 6   │───▶│  Retrospective │  │
  │  │  Refine      │    │  Scaffoldings │    │  Analysis      │  │
- │  │  Prompt &    │    │ (alpha→zeta)  │    │  (critique     │  │
+ │  │  Prompt &    │    │  (alpha→zeta) │    │  (critique     │  │
  │  │  Rubric      │    │               │    │   prompt)      │  │
  │  └──────────────┘    └───────────────┘    └────────┬───────┘  │
  │         ▲                                          │          │
