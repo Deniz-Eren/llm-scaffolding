@@ -19,16 +19,16 @@ Each task is a checkbox with an optional completion date. Tasks are grouped by c
 
 - [x] COMPLETE 2026-06-06 scaffold: create initial project structure
 - [x] COMPLETE 2026-06-06 scaffold: copy pre-existing documents
-- [ ] COMPLETE scaffold: add documentation framework
-- [ ] COMPLETE scaffold: create skills directory
-- [ ] COMPLETE scaffold: finalize governance documents
+- [x] COMPLETE 2026-06-06 scaffold: add documentation framework
+- [x] COMPLETE 2026-06-06 scaffold: create skills directory
+- [x] COMPLETE 2026-06-06 scaffold: finalize governance documents
 
 <!-- [CAT] Development -->
 
-- [ ] COMPLETE Add development workflow documentation
-- [ ] COMPLETE Create example project to validate scaffolding
+- [ ] Add development workflow documentation
+- [ ] Create example project to validate scaffolding
 
 <!-- [CAT] Maintenance -->
 
-- [ ] COMPLETE Review and update task list periodically
-- [ ] COMPLETE Archive completed tasks quarterly
+- [ ] Review and update task list periodically
+- [ ] Archive completed tasks quarterly
