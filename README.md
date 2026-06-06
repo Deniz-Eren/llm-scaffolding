@@ -12,9 +12,9 @@ The deliverable of this project is `prompts/bootstrap-prompt.md` — a single pr
 
 3. **Recommended: wire up the example documents.** The `Pre-Existing Documents` table ships with sample entries prefixed with `*Example: *`. Delete the `Example: ` prefix from any of these rows and set their `Source Path` to point to the matching documents in this repository. This repository already includes several specification documents that govern how the scaffold is built:
 
-- `docs/COMMITS.md` — Defines commit message rules (Conventional Commits specification).
-- `docs/SKILLS.mdx` — Specifies how skill files should be structured (headers, formatting rules).
-- `docs/semver.md` — Defines the semantic versioning scheme to follow.
+- `docs/skills/git/references/COMMITS.md` — Defines commit message rules (Conventional Commits specification).
+- `docs/skills/create-skill/references/SKILLS.mdx` — Specifies how skill files should be structured (headers, formatting rules).
+- `docs/skills/git/references/semver.md` — Defines the semantic versioning scheme to follow.
 - `docs/THIRD-PARTY-NOTICES.md` — Template for tracking third-party dependencies and licenses; also contains the above specification documents.
 
 The prompt endorses specification-based working — even for specifying how skills are created. Point these example rows to the matching documents, and the prompt will follow your specifications when generating the scaffold, producing skill files, commit history, versioning, and dependency tracking that all conform to your rules.
@@ -31,13 +31,6 @@ This bootstrap prompt was not hand-written — it was iteratively developed, str
 
 The process generates 6 independent scaffolding projects (alpha, beta, gamma, delta, epsilon, and zeta) from the current version of the prompt, then asks the AI to critique the prompt itself. The AI identifies what worked, what failed, and suggests concrete improvements. The prompt is refined, assessed by a fresh session using an assessment rubric, and the cycle repeats until the output is consistently reliable.
 
-### Why This Approach
-
-- **Self-Improving System**: The AI critiques and refines its own prompt — no human authoring needed.
-- **Measurable Progress**: The assessment rubric provides objective scoring and qualitative feedback at every iteration.
-- **Repeatable & Transparent**: Every version is version-controlled with clear changelogs.
-- **Robust**: The iterative testing ensures the prompt works reliably, not just on one lucky run.
-
 ---
 
 ## Development Process
@@ -49,7 +42,7 @@ The process generates 6 independent scaffolding projects (alpha, beta, gamma, de
  │  ┌──────────────┐    ┌───────────────┐    ┌────────────────┐  │
  │  │  Create &    │───▶│  Generate 6   │───▶│  Retrospective │  │
  │  │  Refine      │    │  Scaffoldings │    │  Analysis      │  │
- │  │  Prompt &    │    │  (alpha→zeta) │    │  (critique     │  │
+ │  │  Prompt &    │    │ (alpha→zeta)  │    │  (critique     │  │
  │  │  Rubric      │    │               │    │   prompt)      │  │
  │  └──────────────┘    └───────────────┘    └────────┬───────┘  │
  │         ▲                                          │          │
@@ -95,27 +88,45 @@ The process generates 6 independent scaffolding projects (alpha, beta, gamma, de
 /
 ├── .gitignore
 ├── README.md
+├── AGENTS.md              ← AI agent governance (mode toggle, git protocol, checklist)
 ├── prompts/
-│   ├── bootstrap-prompt.md    ← The scaffolding bootstrap prompt (use this)
-│   ├── retro-prompt.md        ← Retrospective analysis template
-│   └── rubric-prompt.md       ← Assessment rubric template
-└── docs/
-    ├── COMMITS.md             ← Conventional Commits specification
-    ├── SKILLS.mdx             ← Agent Skills specification
-    ├── THIRD-PARTY-NOTICES.md ← Third-party notices template
-    └── semver.md              ← Semantic Versioning 2.0.0 specification
+│   ├── bootstrap-prompt.md ← The scaffolding bootstrap prompt (use this)
+│   ├── retro-prompt.md     ← Retrospective analysis template
+│   └── rubric-prompt.md    ← Assessment rubric template
+├── docs/
+│   ├── THIRD-PARTY-NOTICES.md
+│   ├── TASKS.md            ← Task tracking with completion dates
+│   ├── HISTORY.md          ← Project chronicle
+│   ├── VISION.md           ← Mission and guiding principles
+│   ├── DECISIONS.md        ← Architectural Decision Records (ADRs)
+│   ├── STANDARDS.md        ← Copyright and file creation standards
+│   ├── SKILLS.mdx          ← Original skills spec (source, immutable)
+│   ├── COMMITS.md          ← Original commits spec (source, immutable)
+│   ├── semver.md           ← Original semver spec (source, immutable)
+│   └── skills/
+│       ├── create-skill/   ← Meta-skill for creating new skills
+│       │   └── references/ ← Reference materials
+│       ├── dev-environment/← Development environment setup
+│       ├── git/            ← Git conventions and references
+│       │   └── references/ ← Reference materials
+│       └── state-management/ ← TASKS, HISTORY, DECISIONS update procedures
 ```
 
 ---
 
-## Philosophy
+## Governance
 
-This is a living meta-project. Every version of the prompt and rubric is version-controlled with clear changelogs.
-
-**Core Principle**: The AI should be able to build its own best scaffolding bootstrap — through self-critique, structured assessment, and iterative refinement. The result is a prompt that works well without needing human authoring or tweaking.
-
-**Inception**: This project's own scaffolding was generated by the bootstrap prompt itself — we used the tool to build the tool. A circular inception, if you will.
+- **Agent rules**: `[AGENTS.md](AGENTS.md)` — mode toggle, CLI boundaries, git protocol, pre-commit checklist.
+- **Architecture**: `[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)` — project structure and design rationale.
+- **Standards**: `[docs/STANDARDS.md](docs/STANDARDS.md)` — copyright headers, file naming, formatting.
+- **Skills**: All operational procedures live in `[docs/skills/](docs/skills/)`. Each skill covers a distinct tool or concern.
 
 ---
 
-**End Goal**: A single, reliable scaffolding prompt that produces production-ready project structures — developed through rigorous iteration, delivered with zero complexity.
+## License
+
+This project is licensed under the MIT License. See `LICENSE.md` for full terms.
+
+**Copyright (c) 2026 Deniz Eren <deniz.eren@outlook.com>**
+
+Third-party components (COMMITS.md, SKILLS.mdx, semver.md) are included under their original licenses. See `[docs/THIRD-PARTY-NOTICES.md](docs/THIRD-PARTY-NOTICES.md)` for attribution details.
