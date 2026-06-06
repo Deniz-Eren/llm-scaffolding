@@ -1,0 +1,29 @@
+# Build output
+build/
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+
+# Language artifacts
+*.o
+*.a
+*.so
+*.pyc
+__pycache__/
+node_modules/
+target/
+bin/
+obj/
+
+# Development environment
+.venv/
+
+# IDE files
+.idea/
+.vscode/
+*.swp
+*.suo
+
+# OS files
+.DS_Store
+Thumbs.db
