@@ -98,12 +98,12 @@ Assisted-by: pi-agent:Qwen3.6-35B-A3B-UD-Q4_K_XL
 ## Conventional Commits Reference
 
 Full Conventional Commits specification is available at:
-`[references/COMMITS.md](references/COMMITS.md)`
+[references/COMMITS.md](references/COMMITS.md)
 
 ## Semantic Versioning Reference
 
 Semantic Versioning 2.0.0 is available at:
-`[references/semver.md](references/semver.md)`
+[references/semver.md](references/semver.md)
 
 ## Branch Strategy
 
@@ -128,4 +128,4 @@ Semantic Versioning 2.0.0 is available at:
 - [ ] State documents are updated (TASKS.md, HISTORY.md, DECISIONS.md)
 - [ ] Build and tests pass (if applicable)
 
-> For detailed state document update procedures, see `[state-management/SKILL.md](state-management/SKILL.md)`.
+> For detailed state document update procedures, see [state-management/SKILL.md](state-management/SKILL.md).

@@ -15,6 +15,12 @@ Each entry includes a date, category, and description. Entries are listed in rev
 
 <!-- [CAT] Documentation -->
 
+## 2026-06-06 — [Docs] Fixed Backtick-Wrapped Links and Added ADR-7
+
+Fixed all markdown links that were broken by being wrapped in backticks (e.g., `` `[text](url)` `` → `[text](url)`). Added ADR-7 to STANDARDS.md and the bootstrap prompt to prevent this mistake from recurring. Broken links were found in SKILL.md files across `docs/skills/`, STANDARDS.md, and bootstrap prompt.
+
+<!-- [CAT] Documentation -->
+
 ## 2026-06-06 — [Docs] Clarified Manual Nature of 6-Project Stress Test
 
 Updated README.md, ARCHITECTURE.md, and VISION.md to explicitly state that the 6-project stress test and feedback loops were manual steps performed by the author, not an automated feature of the scaffolding. The prompts in `prompts/` are standalone templates for the user to apply at their discretion.

@@ -26,6 +26,7 @@ Each task is a checkbox with an optional completion date. Tasks are grouped by c
 <!-- [CAT] Development -->
 
 - [x] COMPLETE 2026-06-06 docs: clarify that 6-project stress test was manual, not an automated scaffolding feature
+- [x] COMPLETE 2026-06-06 docs: fix backtick-wrapped markdown links and add ADR-7 to prevent recurrence
 - [ ] Add development workflow documentation
 - [ ] Create example project to validate scaffolding
 

@@ -199,6 +199,8 @@ You are an expert Software Architect and AI Operations Manager. Your task is to 
 
     **Verification:** Each document must have exactly one of each required heading. The self-verification script checks for exact heading strings `^## Purpose`, `^## Structure`, `^## Formatting Rules` (excluding lines inside fenced code blocks).
 
+  - **CRITICAL — Markdown Links:** Never wrap markdown link syntax `[text](url)` in backticks (e.g., do NOT write `` `[text](url)` ``). Backticks are for inline code only. Wrapping a link in backticks breaks the hyperlink and renders it as literal text. If monospace styling is desired for emphasis, place the backticks outside the link: `` `[name](path)` `` — but plain links are preferred.
+
 **Copyright & STANDARDS (CRITICAL)**:
 - If `LICENSE.md` is provided, extract the exact copyright notice during Step 1 and state it.
 - Create `docs/STANDARDS.md` defining exact copyright header formats.

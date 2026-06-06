@@ -158,3 +158,28 @@ No dev environment files are generated. The `docs/skills/dev-environment/SKILL.m
 - No build or container infrastructure to maintain.
 - The dev-environment skill serves as a template for future software projects.
 - The README.md Development Environment section notes no setup is needed.
+
+<!-- [CAT] Documentation Formatting -->
+
+## ADR-7 (2026-06-06): Markdown Links Must Not Be Wrapped in Backticks
+
+### Context
+
+When writing markdown links in `SKILL.md`, `STANDARDS.md`, and other documents, the link syntax `[text](url)` was sometimes wrapped in backticks: `` `[text](url)` ``. This breaks the hyperlink — the link renders as literal text instead of a clickable URL.
+
+### Decision
+
+Markdown link syntax `[text](url)` must **never** be wrapped in backticks. Backticks are only for inline code: `` `code` ``. For file references that need monospace styling, use the file name outside the link: [SKILLS.mdx](path) — not `` `[SKILLS.mdx](path)` ``.
+
+### Alternatives
+
+- Keep the backtick-wrapped style (breaks links)
+- Use HTML `<a>` tags instead
+- Accept inconsistent formatting
+
+### Consequences
+
+- All links in markdown documents render as clickable URLs.
+- File names in prose remain readable without being styled as code.
+- If monospace styling is needed for emphasis, apply it outside the link: `[`SKILLS.mdx`](path)` — but this is discouraged; plain links are preferred.
+- The self-improvement loop and generated scaffolding must follow this rule for all links.

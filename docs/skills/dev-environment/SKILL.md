@@ -36,8 +36,8 @@ No development environment setup is required.
 
 ## Related Skills
 
-- `[state-management/SKILL.md](../state-management/SKILL.md)` — For updating project state documents (TASKS, HISTORY, DECISIONS, THIRD-PARTY-NOTICES).
-- `[git/SKILL.md](../git/SKILL.md)` — For git conventions and commit rules.
+- [state-management/SKILL.md](../state-management/SKILL.md) — For updating project state documents (TASKS, HISTORY, DECISIONS, THIRD-PARTY-NOTICES).
+- [git/SKILL.md](../git/SKILL.md) — For git conventions and commit rules.
 
 ## Troubleshooting
 

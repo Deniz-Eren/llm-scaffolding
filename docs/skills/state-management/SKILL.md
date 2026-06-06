@@ -223,7 +223,7 @@ do so, subject to the following conditions:...
 
 ## Pre-Commit Integration
 
-The Pre-Commit Checklist in `[AGENTS.md](../../../AGENTS.md)` requires updating all four state documents and verifying copyright headers before every commit:
+The Pre-Commit Checklist in [AGENTS.md](../../../AGENTS.md) requires updating all four state documents and verifying copyright headers before every commit:
 
 1. **TASKS.md**: Mark completed tasks with `[x] COMPLETE YYYY-MM-DD`
 2. **HISTORY.md**: Add event entry for the commit
@@ -235,7 +235,7 @@ The Pre-Commit Checklist in `[AGENTS.md](../../../AGENTS.md)` requires updating 
 
 ## Reference
 
-- TASKS.md: `[docs/TASKS.md](../TASKS.md)`
-- HISTORY.md: `[docs/HISTORY.md](../HISTORY.md)`
-- DECISIONS.md: `[docs/DECISIONS.md](../DECISIONS.md)`
-- AGENTS.md Pre-Commit Checklist: `[AGENTS.md](../../AGENTS.md)`
+- TASKS.md: [docs/TASKS.md](../TASKS.md)
+- HISTORY.md: [docs/HISTORY.md](../HISTORY.md)
+- DECISIONS.md: [docs/DECISIONS.md](../DECISIONS.md)
+- AGENTS.md Pre-Commit Checklist: [AGENTS.md](../../AGENTS.md)

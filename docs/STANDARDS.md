@@ -114,7 +114,7 @@ All generated markdown files under `docs/` must begin with these three headings 
 
 ### SKILL.md Frontmatter
 
-Follow the specification in `[references/SKILLS.mdx](docs/skills/create-skill/references/SKILLS.mdx)`.
+Follow the specification in [references/SKILLS.mdx](../docs/skills/create-skill/references/SKILLS.mdx).
 
 ### SKILL.md Content
 
@@ -131,6 +131,6 @@ If two skills would share more than 30% of their instructions, merge them into a
 
 ## Reference
 
-- Conventional Commits: `[docs/skills/git/references/COMMITS.md](docs/skills/git/references/COMMITS.md)`
-- Semantic Versioning: `[docs/skills/git/references/semver.md](docs/skills/git/references/semver.md)`
-- Skills Specification: `[docs/skills/create-skill/references/SKILLS.mdx](docs/skills/create-skill/references/SKILLS.mdx)`
+- Conventional Commits: [docs/skills/git/references/COMMITS.md](../docs/skills/git/references/COMMITS.md)
+- Semantic Versioning: [docs/skills/git/references/semver.md](../docs/skills/git/references/semver.md)
+- Skills Specification: [docs/skills/create-skill/references/SKILLS.mdx](../docs/skills/create-skill/references/SKILLS.mdx)
