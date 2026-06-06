@@ -139,4 +139,4 @@ This project is licensed under the MIT License. See `LICENSE.md` for full terms.
 
 **Copyright (c) 2026 Deniz Eren <deniz.eren@outlook.com>**
 
-Third-party components (COMMITS.md, SKILLS.mdx, semver.md) are included under their original licenses. See `[docs/THIRD-PARTY-NOTICES.md](docs/THIRD-PARTY-NOTICES.md)` for attribution details.
+Third-party components (COMMITS.md, SKILLS.mdx, semver.md) are included under their original licenses. See [docs/THIRD-PARTY-NOTICES.md](docs/THIRD-PARTY-NOTICES.md) for attribution details.

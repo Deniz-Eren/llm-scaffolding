@@ -113,4 +113,4 @@ git -c user.name="Deniz Eren" -c user.email="deniz.eren@outlook.com" commit -m "
 ## Reference
 
 - Full specification: `[references/SKILLS.mdx](references/SKILLS.mdx)`
-- Copyright standards: `[STANDARDS.md](../STANDARDS.md)`
+- Copyright standards: `[STANDARDS.md](../../STANDARDS.md)`

@@ -1,6 +1,6 @@
 ---
 name: state-management
-description: Procedures for updating project state documents: TASKS.md, HISTORY.md, and DECISIONS.md. Use when completing tasks, recording events, or making architectural decisions.
+description: Procedures for updating project state documents: TASKS.md, HISTORY.md, DECISIONS.md, and THIRD-PARTY-NOTICES.md. Use when completing tasks, recording events, making architectural decisions, or adding third-party components.
 metadata:
   author: llm-scaffolding
   version: "1.0"
@@ -10,11 +10,11 @@ metadata:
 
 ## Purpose
 
-Define procedures for maintaining project state documents: TASKS.md, HISTORY.md, and DECISIONS.md.
+Define procedures for maintaining project state documents: TASKS.md, HISTORY.md, DECISIONS.md, and THIRD-PARTY-NOTICES.md.
 
 ## Structure
 
-Covers update procedures for each state document, including formatting rules and timing.
+Covers update procedures for each state document, including formatting rules, trigger conditions, and examples.
 
 ## Formatting Rules
 
@@ -150,14 +150,86 @@ Use ruff for Python projects and eslint for JavaScript projects.
 
 ---
 
+## THIRD-PARTY-NOTICES.md Update Procedure
+
+THIRD-PARTY-NOTICES.md tracks third-party open-source software, files, snippets, and libraries used in the project, with license attribution.
+
+### When to Update
+
+- When adding a new third-party dependency (via package manager or direct inclusion).
+- When copying a file or snippet from an external source into the project.
+- During initial scaffolding when pre-existing documents are integrated.
+
+### How to Update
+
+1. **Determine which template to use**:
+   - **Template A (Copied Files or Snippets)** — Use when directly copying a file or code snippet from an external repository.
+   - **Template B (Software Libraries / Dependencies)** — Use when importing an external library via a package manager or linking an external compiled library.
+
+2. **Create the entry** with these fields:
+
+   **Template A (copied files/snippets):**
+   ```markdown
+   ### [Original Project or Author Name]
+   * **Source:** [URL to original source]
+   * **Component(s) Used:** [Relative path in our project]
+   * **Original License:** [e.g., MIT, Apache 2.0]
+
+   #### License Notice
+   Copyright (c) [Year] [Original Copyright Holder]
+
+   [Paste the exact text of the license from the original source]
+   ```
+
+   **Template B (libraries/dependencies):**
+   ```markdown
+   ### [Library Name]
+   * **Source:** [URL to library documentation or repository]
+   * **Version:** [e.g., v1.4.2]
+   * **License:** [e.g., Apache 2.0, MIT]
+
+   #### License Notice
+   Copyright (c) [Year] [Original Copyright Holder]
+
+   [Paste the exact text of the library's license]
+   ```
+
+3. **Place the entry** under the appropriate section:
+   - **Section 1** — Copied Files and Snippets (Template A entries)
+   - **Section 2** — Software Libraries and Dependencies (Template B entries)
+
+4. **Verify** that the license text is complete and the source URL is accessible.
+
+### Example
+
+```markdown
+### conventionalcommits.org
+* **Source:** [github.com/conventional-commits/conventionalcommits.org/content/v1.0.0/index.md](https://github.com/conventional-commits/conventionalcommits.org/blob/master/content/v1.0.0/index.md)
+* **Component(s) Used:** [COMMITS.md](./docs/skills/git/references/COMMITS.md)
+* **Original License:** MIT License
+
+#### License Notice
+Copyright (c) 2018 Conventional Changelog
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights to
+use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
+of the Software, and to permit persons to whom the Software is furnished to
+do so, subject to the following conditions:...
+```
+
+---
+
 ## Pre-Commit Integration
 
-The Pre-Commit Checklist in `[AGENTS.md](../../AGENTS.md)` requires updating all three documents before every commit:
+The Pre-Commit Checklist in `[AGENTS.md](../../../AGENTS.md)` requires updating all four state documents and verifying copyright headers before every commit:
 
 1. **TASKS.md**: Mark completed tasks with `[x] COMPLETE YYYY-MM-DD`
 2. **HISTORY.md**: Add event entry for the commit
 3. **DECISIONS.md**: Add ADR if any new decisions were made
-4. **Copyright headers**: Verify on all new/modified source files
+4. **THIRD-PARTY-NOTICES.md**: Add attribution for new third-party components or dependencies
+5. **Copyright headers**: Verify on all new/modified source files
 
 ---
 

@@ -6,13 +6,26 @@ Establish the rules, boundaries, and operational protocols for AI agents operati
 
 ## Structure
 
-Governance content is organized into: mode toggle, workflow, failure modes, CLI boundaries, token management, git protocol, and pre-commit checklist.
+Governance content is organized into: agent identity, mode toggle, workflow, failure modes, CLI boundaries, token management, git protocol, and pre-commit checklist.
 
 ## Formatting Rules
 
 - Use tables for structured comparisons (failure modes, CLI boundaries).
 - Use checkboxes for actionable items (pre-commit checklist).
 - Keep each section concise and reference skill files for detailed procedures.
+
+---
+
+## Agent Identity
+
+The agent and model used for AI-assisted commits are configured here so the `Assisted-by:` footer always references the correct values.
+
+| Setting | Value |
+|---|---|
+| **Agent Name** | `pi-agent` |
+| **Model** | `Qwen3.6-35B-A3B-UD-Q4_K_XL` |
+
+The `Assisted-by:` footer in every commit uses the format: `pi-agent:Qwen3.6-35B-A3B-UD-Q4_K_XL`.
 
 ---
 
@@ -117,7 +130,7 @@ Assisted-by: {AgentName}:{ModelVersion} + {Tool1} + {Tool2}
 
 ### Conventional Commits
 
-Use types from `docs/skills/git/references/COMMITS.md`. Reference: `[docs/skills/git/SKILL.md](docs/skills/git/SKILL.md)`.
+Use types from `docs/skills/git/references/COMMITS.md`. Reference: [docs/skills/git/SKILL.md](docs/skills/git/SKILL.md).
 
 ### Branch Strategy
 
@@ -138,10 +151,11 @@ Before every commit, verify:
 - [ ] `TASKS.md` updated with `[x] COMPLETE YYYY-MM-DD` for completed tasks
 - [ ] `HISTORY.md` updated with event entry
 - [ ] `DECISIONS.md` updated with ADR if new decisions made
+- [ ] `THIRD-PARTY-NOTICES.md` updated with attribution for new third-party components or dependencies
 - [ ] Copyright headers verified on all new/modified source files
 - [ ] No IMMUTABLE documents modified
 
-> **Detailed update procedures**: See `[docs/skills/state-management/SKILL.md](docs/skills/state-management/SKILL.md)` for full instructions on updating state documents.
+> **Detailed update procedures**: See [docs/skills/state-management/SKILL.md](docs/skills/state-management/SKILL.md) for full instructions on updating state documents.
 
 ---
 
