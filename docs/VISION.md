@@ -14,12 +14,12 @@ Vision statements are organized by theme, each with a brief description.
 
 ## Mission
 
-Build a self-improving AI scaffolding system that produces production-ready project structures through iterative self-critique and structured assessment — without needing human authoring or tweaking.
+Produce a single, reliable bootstrap prompt that, when given to an AI agent, generates a complete production-ready project scaffold. The prompt was iteratively refined through manual stress-testing (6 independent project scaffoldings), retrospective analysis, and structured assessment — but the prompt itself is a static template, not an automated system.
 
 ## Guiding Principles
 
-- **Self-Improvement**: The system critiques and refines its own prompt through structured feedback loops.
-- **Measurable Progress**: Every iteration is scored using an objective rubric.
+- **User-Driven Iteration**: The prompt can be stress-tested, critiqued, and refined by the user through structured feedback loops. The prompts (`retro-prompt.md`, `rubric-prompt.md`) are provided as tools — the user decides when and how to apply them.
+- **Measurable Progress**: When users run the feedback loops, they score results using the objective rubric in `rubric-prompt.md`.
 - **Repeatable & Transparent**: Every version is version-controlled with clear changelogs.
 - **Robust**: The system is stress-tested across multiple independent scaffoldings before each refinement cycle.
 - **Language-Agnostic**: Rules and instructions are designed to work with any programming language or tool stack.

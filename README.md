@@ -2,7 +2,7 @@
 
 ## Quick Start — Using the Bootstrap Prompt
 
-The deliverable of this project is `prompts/bootstrap-prompt.md` — a single prompt you give to your AI agent to generate a complete, production-ready project scaffold.
+The deliverable of this project is [prompts/bootstrap-prompt.md](prompts/bootstrap-prompt.md) — a single prompt you give to your AI agent to generate a complete, production-ready project scaffold.
 
 ### How to Use It
 
@@ -29,25 +29,25 @@ This project is **Documentation-only** — no build system, no source code, and 
 
 No commands are needed to set up a development environment for this project.
 
-> For software projects with a build system, see `[docs/skills/dev-environment/SKILL.md](docs/skills/dev-environment/SKILL.md)` for environment setup procedures.
-
 ---
 
 ## How This Prompt Was Built
 
 > **Disclaimer:** This prompt was built and iteratively refined using only C/C++, CMake, and Podman Compose configurations during the self-improvement loop. However, explicit focus and care were taken to ensure the result is not limited to these selections — every rule and instruction is designed to be language- and tool-agnostic, so it works just as well for Python, Rust, TypeScript, or any other stack.
 
-This bootstrap prompt was not hand-written — it was iteratively developed, stress-tested, and refined entirely by a local AI using a structured self-improvement loop.
+This bootstrap prompt was not hand-written — it was iteratively developed, stress-tested, and refined by the author (with AI assistance) through a structured feedback loop using the prompts in this repository.
 
 The process generates 6 independent scaffolding projects (alpha, beta, gamma, delta, epsilon, and zeta) from the current version of the prompt, then asks the AI to critique the prompt itself. The AI identifies what worked, what failed, and suggests concrete improvements. The prompt is refined, assessed by a fresh session using an assessment rubric, and the cycle repeats until the output is consistently reliable.
 
 ---
 
-## Development Process
+## How the Prompt Was Built (Manual Process)
+
+> **Important:** The 6-project stress test and feedback loops described below were **manual steps performed by the author** to iteratively refine [prompts/bootstrap-prompt.md](prompts/bootstrap-prompt.md). This scaffolding has **no mechanism** to automatically generate, test, or assess other projects. The prompts in `prompts/` are standalone templates you can use (or not use) at your discretion.
 
 ```text
  ┌───────────────────────────────────────────────────────────────┐
- │                Local AI — All Phases                          │
+ │          Manual Process — Author-Driven                       │
  │                                                               │
  │  ┌──────────────┐    ┌───────────────┐    ┌────────────────┐  │
  │  │  Create &    │───▶│  Generate 6   │───▶│  Retrospective │  │
@@ -71,24 +71,25 @@ The process generates 6 independent scaffolding projects (alpha, beta, gamma, de
  └───────────────────────────────────────────────────────────────┘
 ```
 
-### Process Steps
+The author performed these manual steps:
 
 1. **Prompt & Rubric Creation**
-   - The local AI designs the initial **Scaffolding Bootstrap Prompt** and **Assessment Rubric** — no human co-authoring.
+   - The author designed the initial **Scaffolding Bootstrap Prompt** and **Assessment Rubric**.
 
-2. **Scaffolding Generation**
-   - The current prompt is run 6 independent times to create separate scaffolding projects: `alpha/`, `beta/`, `gamma/`, `delta/`, `epsilon/`, and `zeta/`.
+2. **Scaffolding Generation (Manual)**
+   - The author ran the prompt 6 independent times, producing separate scaffolding projects: `alpha/`, `beta/`, `gamma/`, `delta/`, `epsilon/`, and `zeta/`.
 
-3. **Retrospective Analysis**
-   - The same AI is asked to critically analyze the prompt it was given — identifying what worked, what failed, and suggesting improvements (using the prompt `./prompts/retro-prompt.md`).
-   - The AI refines the prompt based on this self-critique.
+3. **Retrospective Analysis (Manual)**
+   - The author asked an AI to critically analyze the prompt using [prompts/retro-prompt.md](prompts/retro-prompt.md), identifying what worked, what failed, and suggesting improvements.
+   - The author refined the prompt based on the analysis.
 
-4. **Independent Assessment**
-   - A fresh session of the local AI evaluates all 6 scaffoldings using the Assessment Rubric and produces a detailed report (using the prompt `./prompts/rubric-prompt.md`).
+4. **Independent Assessment (Manual)**
+   - The author asked a fresh AI session to evaluate all 6 scaffoldings using the rubric via [prompts/rubric-prompt.md](prompts/rubric-prompt.md).
 
-5. **Feedback & Iteration Loop**
-   - The assessment report and retrospective insights are fed back. The AI reviews results, identifies remaining weaknesses, and further refines the prompt and/or rubric.
-   - The cycle repeats until the bootstrap consistently produces high-quality, production-ready scaffoldings.
+5. **Feedback & Iteration (Manual)**
+   - The author fed the assessment report and retrospective insights back into the prompt, iterating until the bootstrap consistently produced high-quality results.
+
+**You are free to repeat this process** with the prompts in `prompts/`, adapting them to your own workflow and project types. There is no automation — the prompts are your tools, and how you use them is entirely up to you.
 
 ---
 
@@ -126,16 +127,16 @@ The process generates 6 independent scaffolding projects (alpha, beta, gamma, de
 
 ## Governance
 
-- **Agent rules**: `[AGENTS.md](AGENTS.md)` — mode toggle, CLI boundaries, git protocol, pre-commit checklist.
-- **Architecture**: `[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)` — project structure and design rationale.
-- **Standards**: `[docs/STANDARDS.md](docs/STANDARDS.md)` — copyright headers, file naming, formatting.
-- **Skills**: All operational procedures live in `[docs/skills/](docs/skills/)`. Each skill covers a distinct tool or concern.
+- **Agent rules**: [AGENTS.md](AGENTS.md) — mode toggle, CLI boundaries, git protocol, pre-commit checklist.
+- **Architecture**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — project structure and design rationale.
+- **Standards**: [docs/STANDARDS.md](docs/STANDARDS.md) — copyright headers, file naming, formatting.
+- **Skills**: All operational procedures live in [docs/skills/](docs/skills/). Each skill covers a distinct tool or concern.
 
 ---
 
 ## License
 
-This project is licensed under the MIT License. See `LICENSE.md` for full terms.
+This project is licensed under the MIT License. See [LICENSE.md](LICENSE.md) for full terms.
 
 **Copyright (c) 2026 Deniz Eren <deniz.eren@outlook.com>**
 

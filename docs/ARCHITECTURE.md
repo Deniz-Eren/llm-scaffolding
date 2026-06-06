@@ -17,7 +17,7 @@ Architecture is organized by: project overview, directory structure rationale, k
 
 This is a documentation-only project. The primary artifact is `prompts/bootstrap-prompt.md` — a single, self-contained prompt that configures an AI agent to scaffold complete project structures.
 
-There is no build system, no source code, and no dev environment. The project structure is designed to support the bootstrap prompt's own development through a self-improvement loop.
+There is no build system, no source code, and no dev environment. The prompts in `prompts/` are standalone templates — the user decides whether and how to use them in their own iterative refinement process.
 
 ## Directory Structure Rationale
 
@@ -51,17 +51,19 @@ Skills follow the bare lowercase tool folder convention (`create-skill/`, `dev-e
 
 ## Key Design Patterns
 
-### Self-Improvement Loop
+### Iterative Prompt Refinement (Manual Process)
 
-The project implements a closed-loop refinement process:
+The 6-project stress test and self-improvement loop described in `README.md` was a **manual methodology** used by the author to develop and refine `prompts/bootstrap-prompt.md`. It is **not** a feature of the generated scaffolding, nor is it built into the prompt itself.
+
+The loop was performed as follows:
 
 1. **Create** → Design bootstrap prompt and assessment rubric
-2. **Generate** → Run prompt against 6 independent project types
-3. **Retrospect** → Same AI critiques the prompt
-4. **Assess** → Fresh AI evaluates all 6 scaffoldings with the rubric
-5. **Refine** → Feed insights back, iterate
+2. **Generate** → Run the prompt 6 independent times (alpha→zeta) by the author
+3. **Retrospect** → Author asks an AI to critique the prompt using `retro-prompt.md`
+4. **Assess** → Author asks a fresh AI session to evaluate all 6 scaffoldings using `rubric-prompt.md`
+5. **Refine** → Feed insights back into the prompt, iterate
 
-This loop is documented in `README.md` and orchestrated through the prompts in `prompts/`.
+The prompts in `prompts/` are standalone templates. The user decides whether and how to use them in their own verification loop. The scaffolding itself has no mechanism to generate, test, or assess other projects.
 
 ### Skill-Based Governance
 

@@ -13,6 +13,12 @@ Each entry includes a date, category, and description. Entries are listed in rev
 - Keep descriptions concise (1–3 sentences)
 - Add entries for major decisions, releases, milestones, and notable events
 
+<!-- [CAT] Documentation -->
+
+## 2026-06-06 — [Docs] Clarified Manual Nature of 6-Project Stress Test
+
+Updated README.md, ARCHITECTURE.md, and VISION.md to explicitly state that the 6-project stress test and feedback loops were manual steps performed by the author, not an automated feature of the scaffolding. The prompts in `prompts/` are standalone templates for the user to apply at their discretion.
+
 <!-- [CAT] Scaffolding -->
 
 ## 2026-06-06 — [Scaffold] Initial Project Structure
