@@ -211,7 +211,8 @@ You are an expert Software Architect and AI Operations Manager. Your task is to 
 - Add a `## License` section to `README.md`.
 
 **File Naming (strict)**:
-- Non-skill files under `docs/`: UPPERCASE names. Prefer single words or hyphenated compounds (e.g., `THIRD-PARTY-NOTICES.md`). Do not use spaces.
+- **Scaffolding-enforcing** non-skill files under `docs/` (TASKS, HISTORY, VISION, DECISIONS, STANDARDS, ARCHITECTURE, THIRD-PARTY-NOTICES): UPPERCASE names. Prefer single words or hyphenated compounds. Do not use spaces.
+- Other `docs/` files (user guides, references, etc.): no UPPERCASE requirement.
 - Skills: bare lowercase tool folders + `SKILL.md` exactly.
 
 **Project Name Collision Check**:
@@ -404,7 +405,7 @@ Then verify manually:
 * Tool configuration files generated where applicable (tools that are installed)
 * `README.md` exists at root with a `## Development Environment` section
 * All `docs/` markdown files have the three required header sections (verified by the for-loop above)
-* Nomenclature is correct (UPPERCASE, single words or hyphenated compounds preferred)
+* Nomenclature is correct (scaffolding-enforcing docs use UPPERCASE, single words or hyphenated compounds preferred)
 * STANDARDS.md exists with exact copyright rules from LICENSE (if provided)
 * Git skill documents Commit Mode and Assisted-by convention
 * Project structure matches declared Project Type and Tunables

@@ -90,7 +90,7 @@ If any of these checks fail, the scaffolding is immediately rejected.
 
 | Score | Criteria |
 | --- | --- |
-| **3** | Excellent UPPERCASE single-word naming (`TASKS.md`, `HISTORY.md`, `VISION.md`, `DECISIONS.md`, `STANDARDS.md`, `ARCHITECTURE.md`). All files under `docs/` have **substantive, well-written** `## Purpose`, `## Structure`, and `## Formatting Rules` sections. Strong Architectural Decision Log and task/history tracking. |
+| **3** | Scaffolding-enforcing docs (`TASKS.md`, `HISTORY.md`, `VISION.md`, `DECISIONS.md`, `STANDARDS.md`, `ARCHITECTURE.md`) use UPPERCASE single-word naming. All files under `docs/` have **substantive, well-written** `## Purpose`, `## Structure`, and `## Formatting Rules` sections. Strong Architectural Decision Log and task/history tracking. |
 | **2** | Good naming and structure but headers are somewhat superficial. |
 | **1** | Violates naming rules (underscores, excessive hyphens, abbreviations). |
 | **0** | Missing key state documents. |

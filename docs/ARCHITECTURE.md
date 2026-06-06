@@ -39,7 +39,7 @@ There is no build system, no source code, and no dev environment. The prompts in
 
 ### Why `docs/` is UPPERCASE
 
-Non-skill documentation files under `docs/` use UPPERCASE names (e.g., `TASKS.md`, `DECISIONS.md`) to distinguish them from skill files and to follow the project's naming convention.
+The **scaffolding-enforcing** documentation files (TASKS, HISTORY, VISION, DECISIONS, STANDARDS, ARCHITECTURE, THIRD-PARTY-NOTICES) use UPPERCASE names to distinguish them from skill files and to follow the project's naming convention. Other documentation files (user guides, references, etc.) are not subject to this rule.
 
 ### Why `prompts/` is lowercase
 

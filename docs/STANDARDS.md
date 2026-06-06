@@ -17,10 +17,14 @@ Standards are organized by category: file naming, copyright headers, document fo
 
 ### Documentation Files (`docs/` non-skill)
 
-- **UPPERCASE** names.
+The **scaffolding-enforcing** documentation files — those that maintain and enforce the project scaffolding:
+
+- Must use **UPPERCASE** names.
 - Prefer single words or hyphenated compounds.
 - No spaces.
 - Examples: `TASKS.md`, `HISTORY.md`, `VISION.md`, `DECISIONS.md`, `STANDARDS.md`, `ARCHITECTURE.md`, `THIRD-PARTY-NOTICES.md`
+
+Other documentation files (e.g., user guides, API references) are not bound by this rule and may use any sensible naming convention.
 
 ### Skill Files
 
