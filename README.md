@@ -23,6 +23,16 @@ That's all. Run the prompt, and your AI agent will produce a full project struct
 
 ---
 
+## Development Environment
+
+This project is **Documentation-only** — no build system, no source code, and no development environment setup is required.
+
+No commands are needed to set up a development environment for this project.
+
+> For software projects with a build system, see `[docs/skills/dev-environment/SKILL.md](docs/skills/dev-environment/SKILL.md)` for environment setup procedures.
+
+---
+
 ## How This Prompt Was Built
 
 > **Disclaimer:** This prompt was built and iteratively refined using only C/C++, CMake, and Podman Compose configurations during the self-improvement loop. However, explicit focus and care were taken to ensure the result is not limited to these selections — every rule and instruction is designed to be language- and tool-agnostic, so it works just as well for Python, Rust, TypeScript, or any other stack.
