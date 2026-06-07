@@ -177,6 +177,8 @@ You are an expert Software Architect and AI Operations Manager. Your task is to 
 * **Skills Philosophy**: Generate one skill per distinct tool or operational concern. Each gets its own bare lowercase tool folder containing `SKILL.md`. **Avoid domain overlap**: each skill should own a distinct tool invocation or workflow step. If two skills share more than 30% of their instructions, merge them. **Always create these skills** (in addition to tool-specific skills): `create-skill/` (meta-skill, always required) and `state-management/` (owns TASKS.md, HISTORY.md, DECISIONS.md update procedures — always required). Create a skill for every configured tool. Do not create skills for concerns with no associated tooling (e.g., "deploy" if no deployment tool is configured). Integrate established standards wherever applicable. Strictly follow any provided `SKILLS.mdx` blueprint.
 * **Tool Configuration Files**: Generate configuration files for configured tools. Use widely-adopted defaults as a starting point. If a tool has a recognized "recommended" or "default" configuration, use it. Document any deviations from defaults in `DECISIONS.md`.
 * **Tool Version Compatibility (STRICT)**: Before generating any tool configuration file, the agent MUST check the installed version of each configured tool by running its `--version` (or `--help` for tools without version flags) command. Every setting in the generated config must be verified against that version. If a feature or option is unavailable, replace it with the closest compatible alternative and record the deviation in `DECISIONS.md`.
+
+> **Containerized environments:** Host-level `--version` checks apply **only** when the resolved environment is **Native** (including Auto → Python). When the environment is **Containerized** (or Auto resolved to containerized), skip host checks entirely — the tools are declared in the `Dockerfile`. Generate config files based on the tool declarations in the Dockerfile and verify tool availability inside the container during Step 5.
   - Map tunables to version commands: `Clang-Format` → `clang-format --version`, `Clang-Tidy` → `clang-tidy --version`, `CMake` → `cmake --version`, `black` → `black --version`, `prettier` → `prettier --version`, `eslint` → `eslint --version`, `rustfmt` → `rustfmt --version`, `cargo` → `cargo --version`, `pytest` → `pytest --version`, `poetry` → `poetry --version`, `npm` → `npm --version`. Add more as needed.
   - **Tool Not Installed:** If `--version` returns "command not found" (exit code 127), do NOT create the tool's configuration file. Create a SKILL.md documenting the tool and noting that it must be installed before use. Record the absence in `DECISIONS.md`.
   - If no version command is available, use best available defaults and note the uncertainty in `DECISIONS.md`.
@@ -273,8 +275,10 @@ Follow the steps strictly in order.
   - **Containerized (all other languages and stacks):** Generate `docker-compose.yml` with a `dev` service, `Dockerfile` that installs all tools declared in the tunables (build system, compilers, linters, formatters, test frameworks), and `scripts/enter-dev.sh` (executable) to interactively enter the container. The `Dockerfile` should use a base image appropriate for the project's language(s) (e.g., `ubuntu:24.04` with compilers and toolchains installed for C/C++, or the relevant distro image for other languages).
   - **Mixed stacks:** Always containerized — generate a single `docker-compose.yml` / `Dockerfile` that handles all languages.
   - **Record the decision** in `DECISIONS.md` under an entry explaining why the chosen environment type was selected.
-* If Build System is specified, tool config files (e.g. `.clang-format`, `.clang-tidy`): Generate a minimal valid config first (zero or one option, or a single style preset). Test the config against the installed tool. Only add advanced options after verifying they are accepted. If a config is rejected, strip options until accepted, then add back incrementally.
-  - **Config Testing Timing for Step 3:** Since no project source files exist in Step 3, test configs against temporary inline samples. For clang-format: `echo 'int x;' | clang-format -style=file`. For clang-tidy: `echo 'int x;' > /tmp/test.cpp && clang-tidy /tmp/test.cpp --checks=llvm*`. Full integration testing occurs in Step 5.
+* If Build System is specified, tool config files (e.g. `.clang-format`, `.clang-tidy`): Generate a minimal valid config first (zero or one option, or a single style preset).
+  - **Native (or Auto → Python):** Test the config against the installed host tool. Only add advanced options after verifying they are accepted. If a config is rejected, strip options until accepted, then add back incrementally.
+  - **Containerized (or Auto → containerized):** Generate the config based on Dockerfile tool declarations; defer full integration testing to Step 5.
+  - **Config Testing Timing for Step 3:** Since no project source files exist in Step 3, test configs against temporary inline samples **on the host (Native only):** For clang-format: `echo 'int x;' | clang-format -style=file`. For clang-tidy: `echo 'int x;' > /tmp/test.cpp && clang-tidy /tmp/test.cpp --checks=llvm*`. For **Containerized** environments, defer all config testing to Step 5 inside the container. Full integration testing occurs in Step 5 for both paths.
 * Create `docs/ARCHITECTURE.md` describing the system architecture. This document must contain:
   - **System overview**: What the project is and its main components.
   - **Directory structure**: What files and directories exist and what each does.
@@ -292,7 +296,34 @@ Follow the steps strictly in order.
 * If Build System specified: create the Build Agent script (executable, exits non-zero on failure). The script must:
   - Activate the development environment before running any tool commands (e.g., `source .venv/bin/activate` for Python native, `podman compose run dev` for all containerized environments).
   - Scan only source directories and exclude build/cache dirs (`build/`, `.git/`, `node_modules/`, `__pycache__/`, `target/`, `vendor/`).
+  - **Create a proper agent file** (`docs/agents/build-check.md`) for this script as described in the Agent Platform Integration section.
 * If Code Formatter specified: create the Formatter Agent script (executable, exits non-zero on failure). The script must activate the development environment before running the formatter and scan only source directories and exclude build/cache dirs.
+  - **Create a proper agent file** (`docs/agents/format-validator.md`) for this script as described in the Agent Platform Integration section.
+* **Agent Platform Integration**:
+  - Create `docs/agents/` directory. This directory holds agent definitions and is **agent-agnostic** — the same files work with any tool that supports agent definitions.
+  - **Create a proper agent file** for every agent script generated (see below). Each agent file must use YAML frontmatter with `name`, `description`, and `tools`, followed by a system prompt body. The agent's system prompt must reference the corresponding skill file and script for detailed commands.
+  - **Agent file format** — every agent file uses YAML frontmatter followed by Markdown body:
+    ```markdown
+    ---
+    name: <agent-name>
+    description: <what the agent does>
+    model: <optional model override>
+    tools: read, grep, find, ls, bash
+    systemPromptMode: replace
+    inheritProjectContext: true
+    inheritSkills: false
+    ---
+
+    <system prompt body>
+    ```
+    Required frontmatter fields: `name`, `description`, `tools`. Optional: `model`, `systemPromptMode`, `inheritProjectContext`, `inheritSkills`.
+  - Create symlinks based on the `Agent Name` from the Session Context:
+    | Agent Name Pattern | Symlinks to Create |
+    |---|---|
+    | `pi-agent` | `ln -sfn ../docs/agents .pi/agents` |
+    | `copilot` or `copilot-agent` | `ln -sfn ../docs/agents .github/agents` |
+    | Both or multiple | `ln -sfn ../docs/agents .pi/agents` **and** `ln -sfn ../docs/agents .github/agents` |
+  - If a symlink already exists (e.g., from a previous bootstrap), use `-f` to overwrite it.
 * Make an atomic commit.
 * Proceed to Step 5.
 
@@ -301,7 +332,7 @@ Follow the steps strictly in order.
 **Development Environment Setup** (always run):
 - Ensure the dev environment is fully set up and functional:
   - **Native (Python):** Create the virtual environment (`python -m venv .venv && source .venv/bin/activate`). Install project dependencies from `requirements.txt` (`pip install -r requirements.txt`). Verify with a smoke test (e.g., `python -c "import <project_name>"`).
-  - **Containerized:** Build the image (`podman compose build dev`) and verify the dev service starts (`podman compose run dev <language-specific-smoke-test>`). Confirm all declared tools (compilers, linters, formatters, test frameworks) are present.
+  - **Containerized:** Build the image (`podman compose build dev`) and verify the dev service starts (`podman compose run dev <language-specific-smoke-test>`). Confirm all declared tools (compilers, linters, formatters, test frameworks) are present. **Test any tool config files generated in Step 3 inside the container** — if a config is rejected, strip options and regenerate as needed.
   - **Mixed stacks:** Always containerized — build the image and verify.
 - Update `README.md` with a `## Development Environment` section (quick-start exception: include the single command to set up the environment).
 
@@ -331,9 +362,10 @@ Follow the steps strictly in order.
 - **include/ directory**: Only create if the project has a public API surface. Place public headers (and version-injected config headers) there.
 
 **Build & Test Verification**:
-- Run the Build Agent script
-- If it fails: diagnose the cause, fix the source of the failure, and re-run. **Do not make a final commit until the build succeeds and all tests pass**
-- Run the Formatter Agent and verify no formatting changes are needed
+- Delegate the build verification to the build agent created in Step 4 (if one exists)
+- If the build fails: diagnose the cause, fix the source of the failure, and re-run. **Do not make a final commit until the build succeeds and all tests pass**
+- Delegate the formatting verification to the format agent created in Step 4 (if one exists) and verify no formatting changes are needed
+- If any of the above scripts exist but their corresponding agent file in `docs/agents/` is missing, create a proper agent file for each as described in the Agent Platform Integration section.
 
 **Finalize**:
 - Update all state documents (mark bootstrap tasks as `[x] COMPLETE` with today's date)
@@ -418,5 +450,6 @@ Then verify manually:
 * Project structure matches declared Project Type and Tunables
 * Development environment is fully functional (native env activated or container image built)
 * Clean git status and successful build (if applicable) and formatting (if applicable)
+* `docs/agents/` directory exists and symlinks created per `Agent Name` (if configured)
 
 **End your response with a clear summary of the scaffolding created and recommended next steps for the user.**

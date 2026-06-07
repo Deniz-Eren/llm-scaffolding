@@ -98,6 +98,7 @@ The author performed these manual steps:
 - **Agent rules**: [AGENTS.md](AGENTS.md) — mode toggle, CLI boundaries, git protocol, pre-commit checklist.
 - **Architecture**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system overview, directory structure, component descriptions, and integration points.
 - **Standards**: [docs/STANDARDS.md](docs/STANDARDS.md) — copyright headers, file naming, formatting.
+- **Pi setup**: [docs/pi.md](docs/pi.md) — pi configuration and usage notes.
 - **Skills**: All operational procedures live in [docs/skills/](docs/skills/). Each skill covers a distinct tool or concern.
 
 ---
