@@ -40,7 +40,7 @@ These settings determine which scaffolding files and skills are generated.
 | Git Author Name | [Your Name] |
 | Git Author Email | [your.commit@email.com] |
 | Copyright Email | [your.copyright@email.com] — Email used in all copyright headers. Defaults to Git Author Email if blank. |
-| Git Commit Flag | `--no-gpg-sign` |
+| Git Commit Flag | `--no-gpg-sign` (Autonomous) / default signing (HITL) — set by the orchestrator based on the configured Commit Mode |
 | Agent Name | [e.g. pi-agent, opencode, claude] — Your own agent identity |
 | Model Version | [e.g. 4.1, 3.7-sonnet] — The model running this session |
 | Additional Tools | [e.g. Cursor, Windsurf] — Other tools used in this session, if any |

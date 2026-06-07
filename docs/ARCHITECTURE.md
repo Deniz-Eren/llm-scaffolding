@@ -119,5 +119,5 @@ Copies of immutable source documents, with relative links adjusted for their new
 | `docs/skills/create-skill/references/SKILLS.mdx` | SKILL.md in create-skill/ | STANDARDS.md |
 | `docs/skills/git/references/COMMITS.md` | SKILL.md in git/ | STANDARDS.md |
 | `docs/skills/git/references/semver.md` | SKILL.md in git/ | STANDARDS.md |
-| `docs/THIRD-PARTY-NOTICES.md` | README.md, all skill references | docs/skills/*/references/*.md |
-| `docs/DECISIONS.md` | ADRs for major decisions | HISTORY.md |
+| `docs/THIRD-PARTY-NOTICES.md` | (standalone — no cross-references) | (standalone — referenced by Pre-Commit Checklist in AGENTS.md) |
+| `docs/DECISIONS.md` | (standalone — contains ADRs) | (referenced by Pre-Commit Checklist in AGENTS.md and state-management SKILL.md) |

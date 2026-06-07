@@ -124,7 +124,7 @@ Semantic Versioning 2.0.0 is available at:
 - [ ] Commit type follows Conventional Commits
 - [ ] `Assisted-by:` footer is present
 - [ ] Commit message is concise but descriptive
-- [ ] No IMMMUTABLE documents are modified
+- [ ] No IMMUTABLE documents are modified
 - [ ] State documents are updated (TASKS.md, HISTORY.md, DECISIONS.md)
 - [ ] Build and tests pass (if applicable)
 

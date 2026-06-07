@@ -6,6 +6,23 @@ The notices, terms, and copyright lines included below are provided to comply wi
 
 ---
 
+## Purpose
+
+Record third-party open-source software, files, snippets, and libraries used in this project, with license attribution and compliance notices.
+
+## Structure
+
+Organized into a format guide (templates for adding entries), copied files and snippets, and software libraries/dependencies.
+
+## Formatting Rules
+
+- Use Template A for copied files or snippets from external repositories.
+- Use Template B for software libraries/dependencies imported via package managers.
+- Never delete existing entries — only append new ones.
+- Keep source URLs accessible and license text complete.
+
+---
+
 ## Documentation Format Guide
 
 To maintain a clean and consistent record of our third-party usage, we use the standardized templates below. When adding a new dependency or copied file to this project, please copy the appropriate template, fill out the bracketed information `[LIKE THIS]`, and add it to the corresponding section.

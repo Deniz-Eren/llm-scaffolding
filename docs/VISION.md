@@ -21,7 +21,7 @@ Produce a single, reliable bootstrap prompt that, when given to an AI agent, gen
 - **User-Driven Iteration**: The prompt can be stress-tested, critiqued, and refined by the user through structured feedback loops. The prompts (`retro-prompt.md`, `rubric-prompt.md`) are provided as tools — the user decides when and how to apply them.
 - **Measurable Progress**: When users run the feedback loops, they score results using the objective rubric in `rubric-prompt.md`.
 - **Repeatable & Transparent**: Every version is version-controlled with clear changelogs.
-- **Robust**: The system is stress-tested across multiple independent scaffoldings before each refinement cycle.
+- **Robust**: The prompt is stress-tested across multiple independent scaffoldings before each refinement cycle, using the prompts in `prompts/` at the user's discretion.
 - **Language-Agnostic**: Rules and instructions are designed to work with any programming language or tool stack.
 - **DRY First**: Operational instructions live in skill files; navigational references in all other documents.
 - **Zero Complexity**: The end goal is a single, reliable prompt — nothing more.

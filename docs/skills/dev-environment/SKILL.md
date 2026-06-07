@@ -48,4 +48,4 @@ A: This skill exists as a template. For documentation-only projects, no actual e
 A: The bootstrap prompt generates environment setup based on the `Dev Environment` and `Build System` tunables:
 - **Python + Native**: `python -m venv .venv && source .venv/bin/activate && pip install -r requirements.txt`
 - **Containerized**: `podman compose build dev && podman compose run dev`
-- **See**: `docs/skills/build-system/SKILL.md` for build-specific environment details.
+- **See**: the relevant build-system SKILL.md for build-specific environment details.

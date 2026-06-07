@@ -130,7 +130,7 @@ Assisted-by: {AgentName}:{ModelVersion} + {Tool1} + {Tool2}
 
 ### Conventional Commits
 
-Use types from `docs/skills/git/references/COMMITS.md`. Reference: [docs/skills/git/SKILL.md](docs/skills/git/SKILL.md).
+Use types from [docs/skills/git/references/COMMITS.md](docs/skills/git/references/COMMITS.md). Reference: [docs/skills/git/SKILL.md](docs/skills/git/SKILL.md).
 
 ### Branch Strategy
 
