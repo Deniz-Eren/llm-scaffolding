@@ -1,90 +1,113 @@
 ## Purpose
 
-Document the architectural decisions and structural organization of the AI Scaffolding Bootstrap project.
+Document the architecture of the AI Scaffolding Bootstrap project — what files exist, how they are structured, and what each component does.
 
 ## Structure
 
-Architecture is organized by: project overview, directory structure rationale, key design patterns, and integration points.
+Architecture is organized by: system overview, directory structure, component descriptions, and integration points.
 
 ## Formatting Rules
 
 - Use code blocks for path examples.
-- Keep architectural descriptions concise and reference skill files for procedural details.
+- Keep descriptions concise and reference skill files for procedural details.
+- Do NOT record decisions here — use `docs/DECISIONS.md` for that.
 
 ---
 
-## Project Overview
+## System Overview
 
-This is a documentation-only project. The primary artifact is `prompts/bootstrap-prompt.md` — a single, self-contained prompt that configures an AI agent to scaffold complete project structures.
+This is a documentation-only project. The primary artifact is `prompts/bootstrap-prompt.md` — a single prompt file that configures an AI agent to scaffold complete project structures.
 
-There is no build system, no source code, and no dev environment. The prompts in `prompts/` are standalone templates — the user decides whether and how to use them in their own iterative refinement process.
+There is no build system, no source code, and no dev environment. The prompts in `prompts/` are standalone templates — the user decides whether and how to use them.
 
-## Directory Structure Rationale
+---
+
+## Directory Structure
 
 ```
 /
-├── AGENTS.md          ← Supreme authority for agent behavior (not in docs/)
-├── README.md          ← Entry point with overview and quick-start
-├── LICENSE.md         ← Project license (immutable)
-├── prompts/           ← All prompt templates (bootstrap, retro, rubric)
+├── AGENTS.md          ← AI agent governance (mode toggle, git protocol, checklist)
+├── README.md          ← Entry point: overview, quick-start, how-to-use
+├── LICENSE.md         ← Project license (MIT, immutable)
+├── .gitignore         ← Build, IDE, and environment exclusions
+├── prompts/
+│   ├── bootstrap-prompt.md ← Scaffolding bootstrap prompt (the deliverable)
+│   ├── retro-prompt.md     ← Retrospective analysis template
+│   └── rubric-prompt.md    ← Assessment rubric template
 ├── docs/
-│   ├── *.md           ← UPPERCASE-named documentation (TASKS, HISTORY, VISION, DECISIONS, STANDARDS)
-│   ├── SKILLS.mdx     ← Source skills specification (immutable)
-│   ├── COMMITS.md     ← Source commits specification (immutable)
-│   ├── semver.md      ← Source semver specification (immutable)
-│   ├── THIRD-PARTY-NOTICES.md ← Third-party attribution
-│   └── skills/        ← Agent skill implementations (lowercase dirs)
-└── .gitignore         ← Build, IDE, and environment exclusions
+│   ├── TASKS.md            ← Task tracking with completion dates
+│   ├── HISTORY.md          ← Project chronicle
+│   ├── VISION.md           ← Mission and guiding principles
+│   ├── DECISIONS.md        ← Architectural Decision Records (ADRs)
+│   ├── STANDARDS.md        ← Copyright and file creation standards
+│   ├── THIRD-PARTY-NOTICES.md ← Third-party dependency attribution
+│   ├── SKILLS.mdx          ← Original skills spec (immutable source)
+│   ├── COMMITS.md          ← Original commits spec (immutable source)
+│   ├── semver.md           ← Original semver spec (immutable source)
+│   └── skills/             ← Agent skill implementations
+│       ├── create-skill/   ← Meta-skill: how to create new skills
+│       │   └── references/ ← SKILLS.mdx copy (immutable)
+│       ├── dev-environment/← Dev environment setup docs
+│       ├── git/            ← Git conventions
+│       │   └── references/ ← COMMITS.md, semver.md copies
+│       └── state-management/ ← TASKS/HISTORY/DECISIONS update procedures
 ```
 
-### Why `docs/` is UPPERCASE
+---
 
-The **scaffolding-enforcing** documentation files (TASKS, HISTORY, VISION, DECISIONS, STANDARDS, ARCHITECTURE, THIRD-PARTY-NOTICES) use UPPERCASE names to distinguish them from skill files and to follow the project's naming convention. Other documentation files (user guides, references, etc.) are not subject to this rule.
+## Component Descriptions
 
-### Why `prompts/` is lowercase
+### Root Files
 
-Prompt templates are implementation artifacts, not documentation. They use lowercase to differentiate from the formal documentation layer.
+| File | Purpose |
+|---|---|
+| `AGENTS.md` | Supreme authority for AI agent behavior: mode toggle, CLI boundaries, git protocol, pre-commit checklist. |
+| `README.md` | Entry point: project overview, how to use the bootstrap prompt, development environment notes, repository structure. |
+| `LICENSE.md` | MIT License (immutable). |
+| `.gitignore` | Excludes build outputs, IDE files, language artifacts, and dev environment directories. |
 
-### Why `skills/` uses lowercase
+### Prompt Files (`prompts/`)
 
-Skills follow the bare lowercase tool folder convention (`create-skill/`, `dev-environment/`) with `SKILL.md` as the entry point.
+| File | Purpose |
+|---|---|
+| `bootstrap-prompt.md` | The main deliverable: a single prompt that configures an AI agent to scaffold a complete project structure with governance, skills, and boilerplate. |
+| `retro-prompt.md` | Template for retrospective analysis: critiques the bootstrap prompt after use. |
+| `rubric-prompt.md` | Assessment rubric: evaluates generated scaffoldings against criteria. |
 
-## Key Design Patterns
+### Documentation Files (`docs/`)
 
-### Iterative Prompt Refinement (Manual Process)
+| File | Purpose |
+|---|---|
+| `TASKS.md` | Tracks project tasks with `[x] COMPLETE YYYY-MM-DD` format. |
+| `HISTORY.md` | Chronological record of significant events (reverse chronological). |
+| `VISION.md` | Mission statement and guiding principles for the project. |
+| `DECISIONS.md` | Architectural Decision Records (ADRs): context, decision, alternatives, consequences. |
+| `STANDARDS.md` | Copyright headers, file naming, document formatting rules. |
+| `THIRD-PARTY-NOTICES.md` | Attribution for third-party dependencies and copied files. |
+| `SKILLS.mdx` | Original skills specification (immutable source). |
+| `COMMITS.md` | Conventional Commits specification (immutable source). |
+| `semver.md` | Semantic Versioning 2.0.0 specification (immutable source). |
 
-The 6-project stress test and self-improvement loop described in `README.md` was a **manual methodology** used by the author to develop and refine `prompts/bootstrap-prompt.md`. It is **not** a feature of the generated scaffolding, nor is it built into the prompt itself.
+### Skills Directory (`docs/skills/`)
 
-The loop was performed as follows:
+| Skill | Purpose |
+|---|---|
+| `create-skill/` | Meta-skill: step-by-step instructions for creating new agent skills. |
+| `dev-environment/` | Documents development environment setup (for this project: no env needed; for software projects: template for venv or container). |
+| `git/` | Git conventions: commit format, Assisted-by footer, branch strategy, Conventional Commits reference. |
+| `state-management/` | Procedures for updating TASKS.md, HISTORY.md, DECISIONS.md, and THIRD-PARTY-NOTICES.md. |
 
-1. **Create** → Design bootstrap prompt and assessment rubric
-2. **Generate** → Run the prompt 6 independent times (alpha→zeta) by the author
-3. **Retrospect** → Author asks an AI to critique the prompt using `retro-prompt.md`
-4. **Assess** → Author asks a fresh AI session to evaluate all 6 scaffoldings using `rubric-prompt.md`
-5. **Refine** → Feed insights back into the prompt, iterate
+### Reference Files (`docs/skills/*/references/`)
 
-The prompts in `prompts/` are standalone templates. The user decides whether and how to use them in their own verification loop. The scaffolding itself has no mechanism to generate, test, or assess other projects.
+Copies of immutable source documents, with relative links adjusted for their new locations:
 
-### Skill-Based Governance
+| Skill | Reference File | Purpose |
+|---|---|---|
+| `create-skill/` | `SKILLS.mdx` | Skills specification blueprint for skill creation. |
+| `git/` | `COMMITS.md` | Conventional Commits format reference. |
+| `git/` | `semver.md` | Semantic Versioning reference. |
 
-All operational procedures live in `docs/skills/`. This ensures:
-- **DRY**: No duplicated instructions across files.
-- **Modularity**: Each skill owns a distinct concern.
-- **Discoverability**: Skills are organized in a flat directory structure.
-
-Key skills:
-- `create-skill/` — Meta-skill for creating new skills
-- `dev-environment/` — Environment setup (documents that no env is needed)
-- `git/` — Git conventions, commit rules, and Assisted-by footer
-- `state-management/` — TASKS/HISTORY/DECISIONS update procedures
-
-### Immutable Source Documents
-
-Specification documents (SKILLS.mdx, COMMITS.md, semver.md) exist in two places:
-1. **Source** (`docs/`) — Original, immutable, canonical versions
-2. **Copies** (`docs/skills/*/references/`) — Referenced by skill files
-
-Copies have relative links fixed to their new locations but content is verbatim.
+---
 
 ## Integration Points
 
@@ -97,11 +120,4 @@ Copies have relative links fixed to their new locations but content is verbatim.
 | `docs/skills/git/references/COMMITS.md` | SKILL.md in git/ | STANDARDS.md |
 | `docs/skills/git/references/semver.md` | SKILL.md in git/ | STANDARDS.md |
 | `docs/THIRD-PARTY-NOTICES.md` | README.md, all skill references | docs/skills/*/references/*.md |
-| `docs/DECISIONS.md` | ADRs for all major decisions | HISTORY.md |
-
-## Non-Architectural Decisions
-
-Per `docs/DECISIONS.md`:
-- **ADR-1**: Documentation-only project type (no build system, no tests, no formatter)
-- **ADR-4**: Skills philosophy (non-overlapping domains, mandatory create-skill and state-management)
-- **ADR-6**: No development environment (documented in dev-environment skill for completeness)
+| `docs/DECISIONS.md` | ADRs for major decisions | HISTORY.md |

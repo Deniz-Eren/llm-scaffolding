@@ -275,7 +275,12 @@ Follow the steps strictly in order.
   - **Record the decision** in `DECISIONS.md` under an entry explaining why the chosen environment type was selected.
 * If Build System is specified, tool config files (e.g. `.clang-format`, `.clang-tidy`): Generate a minimal valid config first (zero or one option, or a single style preset). Test the config against the installed tool. Only add advanced options after verifying they are accepted. If a config is rejected, strip options until accepted, then add back incrementally.
   - **Config Testing Timing for Step 3:** Since no project source files exist in Step 3, test configs against temporary inline samples. For clang-format: `echo 'int x;' | clang-format -style=file`. For clang-tidy: `echo 'int x;' > /tmp/test.cpp && clang-tidy /tmp/test.cpp --checks=llvm*`. Full integration testing occurs in Step 5.
-* Create architectural documentation under `docs/`.
+* Create `docs/ARCHITECTURE.md` describing the system architecture. This document must contain:
+  - **System overview**: What the project is and its main components.
+  - **Directory structure**: What files and directories exist and what each does.
+  - **Component descriptions**: Purpose of each major file, skill, and directory.
+  - **Integration points**: How components relate to each other (e.g., which files reference which).
+  - **NOT decisions**: Do NOT record architectural decisions here — use `docs/DECISIONS.md` for that. ARCHITECTURE.md describes the current state, not why choices were made.
 * Make an atomic commit.
 * Proceed to Step 4.
 

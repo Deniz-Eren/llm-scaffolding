@@ -183,3 +183,32 @@ Markdown link syntax `[text](url)` must **never** be wrapped in backticks. Backt
 - File names in prose remain readable without being styled as code.
 - If monospace styling is needed for emphasis, apply it outside the link: `[`SKILLS.mdx`](path)` — but this is discouraged; plain links are preferred.
 - The self-improvement loop and generated scaffolding must follow this rule for all links.
+
+<!-- [CAT] Documentation Separation -->
+
+## ADR-8 (2026-06-06): Separate Architecture from Decisions
+
+### Context
+
+`docs/ARCHITECTURE.md` was created by the AI scaffolding agent as a document recording architectural decisions — essentially duplicating `docs/DECISIONS.md`. The bootstrap prompt instruction "Create architectural documentation under `docs/`" was too vague and led the AI to record decisions instead of describing the system architecture.
+
+### Decision
+
+- **`ARCHITECTURE.md`** describes the **current state**: what files exist, how the system is structured, what each component does. It is a living document that changes as the architecture changes.
+- **`DECISIONS.md`** records the **past choices**: why something was decided, what alternatives were considered, and what consequences followed. Decisions are append-only and dated.
+- The bootstrap prompt was updated to explicitly state that ARCHITECTURE.md must NOT contain decisions.
+- `STANDARDS.md` now documents the distinct purpose of each `docs/` file in a reference table.
+
+### Alternatives
+
+- Keep both documents overlapping (confusing for readers and maintainers)
+- Merge all content into DECISIONS.md (loses the "current state" view)
+- Merge all content into ARCHITECTURE.md (loses the historical decision trail)
+
+### Consequences
+
+- `ARCHITECTURE.md` is now a practical reference for understanding the current system structure.
+- `DECISIONS.md` remains the sole place for architectural decision records.
+- The bootstrap prompt includes explicit instructions to prevent this mistake in generated scaffolds.
+- New contributors can quickly find either "what exists" (ARCHITECTURE.md) or "why it was chosen" (DECISIONS.md).
+- Generated scaffolds will have the same clear separation.

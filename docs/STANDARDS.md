@@ -96,17 +96,50 @@ Every file that supports comment blocks must include the copyright header at the
 
 ---
 
-## Document Headers
+## Document Purposes
 
-All generated markdown files under `docs/` must begin with these three headings in order:
+Each `docs/` file has a specific role. Do not conflate purposes — use the correct file for each type of content:
 
-1. `## Purpose`
-2. `## Structure`
-3. `## Formatting Rules`
+| File | Purpose | Do NOT put here |
+|---|---|---|
+| `ARCHITECTURE.md` | Current system architecture: files, structure, component descriptions, integration points. | Architectural decisions, ADRs, historical rationale |
+| `DECISIONS.md` | Architectural Decision Records: context, decision, alternatives, consequences for past choices. | Current architecture description, component lists |
+| `TASKS.md` | Tracked tasks with completion status. | General documentation |
+| `HISTORY.md` | Chronological event log. | Architectural rationale |
+| `VISION.md` | Mission and guiding principles. | Task tracking |
+| `STANDARDS.md` | File naming, copyright headers, formatting rules. | Decisions |
+| `THIRD-PARTY-NOTICES.md` | Third-party dependency attribution. | Internal architecture |
 
-**Exceptions:**
-- Pre-existing/IMMUTABLE documents (retain original content).
-- `VISION.md` — rename its internal purpose section to `## Mission` to avoid duplicate headings; the three required headings still appear at the top.
+### ARCHITECTURE.md vs DECISIONS.md
+
+- **`ARCHITECTURE.md`** describes the **current state**: what exists, how it is structured, what each component does. It is a living document that changes as the architecture changes.
+- **`DECISIONS.md`** records the **past choices**: why something was decided, what alternatives were considered, and what consequences followed. Decisions are append-only and dated.
+
+### DECISIONS.md Update Procedure
+
+DECISIONS.md contains Architectural Decision Records (ADRs) for significant decisions.
+
+### When to Update
+
+- When making a new architectural or strategic decision.
+- When reversing or modifying an existing decision.
+- When the rationale for an existing decision changes.
+
+### How to Update
+
+1. **Determine the next ADR number** (check existing ADRs for the highest number).
+2. **Create a new ADR entry**:
+   ```markdown
+   ## ADR-N (YYYY-MM-DD): Title
+   ```
+
+3. **Fill in the four required subsections**:
+   - `### Context` — Why was this decision being considered?
+   - `### Decision` — What was decided?
+   - `### Alternatives` — What other options were considered?
+   - `### Consequences` — What are the results of this decision?
+
+4. **Group under a category comment**: `<!-- [CAT] Category -->`
 
 ---
 
@@ -114,7 +147,7 @@ All generated markdown files under `docs/` must begin with these three headings 
 
 ### SKILL.md Frontmatter
 
-Follow the specification in [references/SKILLS.mdx](../docs/skills/create-skill/references/SKILLS.mdx).
+Follow the specification in [references/SKILLS.mdx](skills/create-skill/references/SKILLS.mdx).
 
 ### SKILL.md Content
 
@@ -131,6 +164,6 @@ If two skills would share more than 30% of their instructions, merge them into a
 
 ## Reference
 
-- Conventional Commits: [docs/skills/git/references/COMMITS.md](../docs/skills/git/references/COMMITS.md)
-- Semantic Versioning: [docs/skills/git/references/semver.md](../docs/skills/git/references/semver.md)
-- Skills Specification: [docs/skills/create-skill/references/SKILLS.mdx](../docs/skills/create-skill/references/SKILLS.mdx)
+- Conventional Commits: [skills/git/references/COMMITS.md](skills/git/references/COMMITS.md)
+- Semantic Versioning: [skills/git/references/semver.md](skills/git/references/semver.md)
+- Skills Specification: [skills/create-skill/references/SKILLS.mdx](skills/create-skill/references/SKILLS.mdx)

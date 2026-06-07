@@ -15,6 +15,12 @@ Each entry includes a date, category, and description. Entries are listed in rev
 
 <!-- [CAT] Documentation -->
 
+## 2026-06-06 — [Docs] Separated Architecture from Decisions; Updated Bootstrap Prompt
+
+Rewrote `ARCHITECTURE.md` to describe the current system architecture (files, structure, components) instead of recording decisions. Fixed the root cause in `bootstrap-prompt.md` — the instruction "Create architectural documentation under `docs/`" was replaced with specific instructions defining what ARCHITECTURE.md should contain. Added ADR-8 documenting this decision. Updated `STANDARDS.md` with a reference table clarifying each `docs/` file's purpose.
+
+<!-- [CAT] Documentation -->
+
 ## 2026-06-06 — [Docs] Fixed Backtick-Wrapped Links and Added ADR-7
 
 Fixed all markdown links that were broken by being wrapped in backticks (e.g., `` `[text](url)` `` → `[text](url)`). Added ADR-7 to STANDARDS.md and the bootstrap prompt to prevent this mistake from recurring. Broken links were found in SKILL.md files across `docs/skills/`, STANDARDS.md, and bootstrap prompt.
