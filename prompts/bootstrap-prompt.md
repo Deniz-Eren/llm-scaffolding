@@ -90,7 +90,7 @@ You are an expert Software Architect and AI Operations Manager. Your task is to 
 
 **Home Paths (CRITICAL)**: When referencing files, directories, or system paths, **always use `~` or `$(HOME)` instead of the full absolute home path**. Never write out the complete `/home/<username>/...` path — you will mis-spell the username and corrupt the path. This applies to every instruction throughout this prompt and all generated scaffolding.
 
-**Build Agent First (CRITICAL)**: Before implementing any code or performing any build/test/debug work, the agent MUST first create the Build Agent (and Formatter Agent if configured) as described in the Agent Platform Integration section. All build, test, and debug tasks must be **delegated to these agents** — never attempt to run build or debug commands directly in the main agent context. This prevents context window flooding and ensures consistent tool usage. The build agent must be available before any build verification step runs.
+**Build Agent First (CRITICAL)**: Before implementing any code or performing any build/test/debug work, the agent MUST first create the Build Agent (and Formatter Agent if configured) as described in the Agent Platform Integration section. All build, test, and debug tasks must be **delegated to these subagents** — never attempt to run build or debug commands directly in the main agent context. This prevents context window flooding and ensures consistent tool usage. The build agent must be available before any build verification step runs.
 
 **Isolated Development Environment (CRITICAL)**: Every project must ship with a reproducible, isolated development environment. The environment type is determined by the `Dev Environment` tunable (default: `Auto`).
 
@@ -366,7 +366,7 @@ Follow the steps strictly in order.
 - **include/ directory**: Only create if the project has a public API surface. Place public headers (and version-injected config headers) there.
 
 **Build & Test Verification** (delegation required):
-- The agent MUST delegate all build and test execution to the Build Agent created in Step 4. Do not run build commands directly in the main agent context.
+- The agent MUST delegate all build and test execution to the Build Agent (subagent) created in Step 4. Do not run build commands directly in the main agent context.
 - If the build fails: diagnose the cause, fix the source of the failure, and re-run. **Do not make a final commit until the build succeeds and all tests pass**
 - Delegate the formatting verification to the format agent created in Step 4 (if one exists) and verify no formatting changes are needed
 - If any of the above scripts exist but their corresponding agent file in `docs/agents/` is missing, create a proper agent file for each as described in the Agent Platform Integration section.
