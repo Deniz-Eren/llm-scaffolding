@@ -15,6 +15,14 @@ Each entry includes a date, category, and description. Entries are listed in rev
 
 <!-- [CAT] Documentation -->
 
+## 2026-06-07 — [Docs] Added Home Paths and Build Agent First CRITICAL directives
+
+Updated `prompts/bootstrap-prompt.md` with two new CRITICAL directives:
+**Home Paths** — agents must always use `~` or `$(HOME)` instead of full
+`/home/<username>/` paths to prevent username misspellings. **Build Agent
+First** — agents must create the Build Agent before any build/test/debug work
+and delegate all such tasks to it, preventing context window flooding.
+
 ## 2026-06-06 — [Docs] Separated Architecture from Decisions; Updated Bootstrap Prompt
 
 Rewrote `ARCHITECTURE.md` to describe the current system architecture (files, structure, components) instead of recording decisions. Fixed the root cause in `bootstrap-prompt.md` — the instruction "Create architectural documentation under `docs/`" was replaced with specific instructions defining what ARCHITECTURE.md should contain. Added ADR-8 documenting this decision. Updated `STANDARDS.md` with a reference table clarifying each `docs/` file's purpose.
