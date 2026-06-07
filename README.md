@@ -93,42 +93,10 @@ The author performed these manual steps:
 
 ---
 
-## Repository Structure
-
-```
-/
-├── .gitignore
-├── README.md
-├── AGENTS.md              ← AI agent governance (mode toggle, git protocol, checklist)
-├── prompts/
-│   ├── bootstrap-prompt.md ← The scaffolding bootstrap prompt (use this)
-│   ├── retro-prompt.md     ← Retrospective analysis template
-│   └── rubric-prompt.md    ← Assessment rubric template
-├── docs/
-│   ├── THIRD-PARTY-NOTICES.md
-│   ├── TASKS.md            ← Task tracking with completion dates
-│   ├── HISTORY.md          ← Project chronicle
-│   ├── VISION.md           ← Mission and guiding principles
-│   ├── DECISIONS.md        ← Architectural Decision Records (ADRs)
-│   ├── STANDARDS.md        ← Copyright and file creation standards
-│   ├── SKILLS.mdx          ← Original skills spec (source, immutable)
-│   ├── COMMITS.md          ← Original commits spec (source, immutable)
-│   ├── semver.md           ← Original semver spec (source, immutable)
-│   └── skills/
-│       ├── create-skill/   ← Meta-skill for creating new skills
-│       │   └── references/ ← Reference materials
-│       ├── dev-environment/← Development environment setup
-│       ├── git/            ← Git conventions and references
-│       │   └── references/ ← Reference materials
-│       └── state-management/ ← TASKS, HISTORY, DECISIONS update procedures
-```
-
----
-
 ## Governance
 
 - **Agent rules**: [AGENTS.md](AGENTS.md) — mode toggle, CLI boundaries, git protocol, pre-commit checklist.
-- **Architecture**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — project structure and design rationale.
+- **Architecture**: [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) — system overview, directory structure, component descriptions, and integration points.
 - **Standards**: [docs/STANDARDS.md](docs/STANDARDS.md) — copyright headers, file naming, formatting.
 - **Skills**: All operational procedures live in [docs/skills/](docs/skills/). Each skill covers a distinct tool or concern.
 
