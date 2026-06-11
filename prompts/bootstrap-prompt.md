@@ -300,7 +300,7 @@ Follow the steps strictly in order.
 * If Build System specified: create the Build Agent script (executable, exits non-zero on failure). The script must:
   - Activate the development environment before running any tool commands (e.g., `source .venv/bin/activate` for Python native, `podman compose run dev` for all containerized environments).
   - Scan only source directories and exclude build/cache dirs (`build/`, `.git/`, `node_modules/`, `__pycache__/`, `target/`, `vendor/`).
-  - **Create a proper agent file** (`docs/agents/build-check.md`) for this script as described in the Agent Platform Integration section.
+  - **Create a proper agent file** (`docs/agents/build.md`) for this script as described in the Agent Platform Integration section.
 * If Code Formatter specified: create the Formatter Agent script (executable, exits non-zero on failure). The script must activate the development environment before running the formatter and scan only source directories and exclude build/cache dirs.
   - **Create a proper agent file** (`docs/agents/format-validator.md`) for this script as described in the Agent Platform Integration section.
 * **Agent Platform Integration**:
